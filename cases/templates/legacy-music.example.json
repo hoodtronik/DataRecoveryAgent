@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "case_name": "Legacy music recovery (example only)",
+  "status": "planning",
+  "authorization_confirmed": false,
+  "sources": [
+    {
+      "source_id": "drive-a",
+      "interface": "SATA or PATA",
+      "capacity_bytes": null,
+      "original_drive_held_by_owner": true
+    }
+  ],
+  "image_files": [],
+  "recovery_priorities": [
+    "flp",
+    "zip_project",
+    "wav",
+    "mp3",
+    "wma",
+    "sample_dependencies",
+    "midi"
+  ],
+  "constraints": [
+    "no original drive writes",
+    "local_only",
+    "no cloud uploads without authorization"
+  ],
+  "notes": "Replace with private real case metadata outside the public repository."
+}
