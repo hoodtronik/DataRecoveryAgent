@@ -41,3 +41,7 @@ Build a locally executed, auditable, evidence-preserving recovery system for leg
 - Preserve CLI compatibility and JSON report versioning.
 - Add tests for missing/truncated headers, cross-chunk reads, bad sizes, untrusted reports and no-overwrite behavior.
 - Never claim a passing CI run unless GitHub actually reports it.
+
+## CLAUDE-NOTE convention
+
+Claude Code changes marked with `CLAUDE-NOTE:` (or equivalent comment syntax) are the source of truth. Non-Claude-Code agents must not modify, remove, or alter code marked with a CLAUDE-NOTE without first alerting the user and receiving explicit permission.

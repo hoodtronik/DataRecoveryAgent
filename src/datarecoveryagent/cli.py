@@ -24,6 +24,8 @@ def make_parser() -> argparse.ArgumentParser:
     extract_cmd.add_argument("image")
     extract_cmd.add_argument("report", help="Candidate JSON produced by scan")
     extract_cmd.add_argument("--outdir", required=True, help="Separate recovery output folder")
+    diag_cmd = sub.add_parser("diagnose-windows", help="Read-only Windows storage hardware detection report")
+    diag_cmd.add_argument("--output", required=True, help="New JSON report path (never overwritten)")
     return parser
 
 
@@ -56,6 +58,10 @@ def main(argv: list[str] | None = None) -> int:
                 "output_folder": args.outdir,
                 "warning": report["warning"],
             }, indent=2))
+        elif args.command == "diagnose-windows":
+            from . import winhw  # CLAUDE-NOTE: lazy import keeps hardware code out of image-analysis paths.
+
+            print(json.dumps(winhw.diagnose_windows(args.output), indent=2))
         return 0
     except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError) as error:
         print("ERROR: " + str(error), file=sys.stderr)

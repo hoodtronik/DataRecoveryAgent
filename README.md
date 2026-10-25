@@ -43,6 +43,14 @@ Run tests:
 python -m unittest discover -s tests -v
 ```
 
+## Optional: Windows hardware detection
+
+```powershell
+python -m datarecoveryagent diagnose-windows --output "D:\Reports\windows-diagnostic.json"
+```
+
+One read-only enumeration pass (no disk reads, no mounting, no retries) that separates USB bridge/dock detection from disk identification and classifies the situation as Level A-D. Serials and device paths are redacted. Keep the output out of the repository.
+
 ## Project guide
 
 - [AGENTS.md](AGENTS.md): rules for Codex, Claude Code, and other coding agents.
